@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp" >
+
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="90dp"
+        android:layout_height="120dp"
+        android:layout_gravity="left"
+        android:scaleType="fitCenter"
+        android:paddingLeft="0dip" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/poster"
+        android:layout_toRightOf="@+id/poster"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/genres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dip"
+        android:layout_toRightOf="@id/poster"
+        android:gravity="right"
+        android:textSize="8dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/releaseData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/genres"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dip"
+        android:layout_toRightOf="@id/poster"
+        android:gravity="right"
+        android:textSize="8dp"
+        android:textStyle="italic" />
+
+    <me.biubiubiu.justifytext.library.JustifyTextView
+        android:id="@+id/overview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/releaseData"
+        android:layout_marginTop="2dip"
+        android:layout_toRightOf="@id/poster"
+        android:textSize="8dp"
+        android:justificationMode="none"
+        android:textStyle="italic" />
+
+</RelativeLayout>
