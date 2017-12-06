@@ -5,6 +5,7 @@ import android.app.Activity;
 import dhenfreitas.com.upcomingmovies.activities.MainActivity;
 import dhenfreitas.com.upcomingmovies.interfaces.TheMoviesDatabaseAPIs;
 import dhenfreitas.com.upcomingmovies.models.Object;
+import dhenfreitas.com.upcomingmovies.tasks.MoviesTask;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
@@ -51,9 +52,12 @@ public class FindMovies {
 
                         if(object != null ) {
 
-                            ((MainActivity) activity).setMoviesDBTotalPages(object.getTotalPages());
+//                            ((MainActivity) activity).setMoviesDBTotalPages(object.getTotalPages());
 
                             ((MainActivity) activity).addNewMovies(object.getResults());
+
+                            MoviesTask moviesTask = new MoviesTask(activity, 1);
+                            moviesTask.execute();
                         }
                     }
 

@@ -3,6 +3,7 @@ package dhenfreitas.com.upcomingmovies.activities;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.ContextMenu;
@@ -23,16 +24,18 @@ import java.util.List;
 
 import dhenfreitas.com.upcomingmovies.R;
 import dhenfreitas.com.upcomingmovies.adapter.MovieListAdapter;
+import dhenfreitas.com.upcomingmovies.fragment.SingleFlipcard;
 import dhenfreitas.com.upcomingmovies.models.Object;
 import dhenfreitas.com.upcomingmovies.models.Result;
 import dhenfreitas.com.upcomingmovies.tasks.GenreTask;
+import dhenfreitas.com.upcomingmovies.tasks.MoviesTask;
 import dhenfreitas.com.upcomingmovies.utils.FindMovies;
+import dhenfreitas.com.upcomingmovies.utils.Verbose;
 
 public class MainActivity extends FragmentActivity {
 
     private Object hashMapMovieObjects;
     private HashMap<Integer, String> genreHashMap;
-    private int MoviesDBTotalPages;
     InputMethodManager imm;
 
     // The data to show
@@ -144,12 +147,26 @@ public class MainActivity extends FragmentActivity {
     public boolean onContextItemSelected(MenuItem item) {
 
         int itemId = item.getItemId();
+
+        AdapterView.AdapterContextMenuInfo aInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (itemId) {
             case 1:
+
+                FragmentTransaction transaction = getSupportFragmentManager()
+                        .beginTransaction();
+
+                Bundle argFlipcard = new Bundle();
+                SingleFlipcard flipCard = new SingleFlipcard();
+
+                argFlipcard.putSerializable(Verbose.SINGLE_MOVIE, moviesList.get(aInfo.position));
+
+                flipCard.setArguments(argFlipcard);
+                transaction.add(R.id.mainScreen, flipCard, Verbose.FLIP_CARD);
+                transaction.addToBackStack(Verbose.FLIP_CARD).commit();
+
                 break;
 
             case 2:
-                AdapterView.AdapterContextMenuInfo aInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
                 moviesList.remove(aInfo.position);
                 moviesAdapter.notifyDataSetChanged();
                 break;
@@ -173,13 +190,5 @@ public class MainActivity extends FragmentActivity {
 
     public void setGenreHashMap(HashMap<Integer, String> genreHashMap) {
         this.genreHashMap = genreHashMap;
-    }
-
-    public int getMoviesDBTotalPages() {
-        return MoviesDBTotalPages;
-    }
-
-    public void setMoviesDBTotalPages(int moviesDBTotalPages) {
-        MoviesDBTotalPages = moviesDBTotalPages;
     }
 }

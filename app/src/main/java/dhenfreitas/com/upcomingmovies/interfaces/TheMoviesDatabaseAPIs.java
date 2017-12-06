@@ -31,4 +31,8 @@ public interface TheMoviesDatabaseAPIs {
     @GET("upcoming?")
     Call<Object> getUpcomingMovies(@Query("api_key") String key, @Query("language") String language, @Query("page") int page);
 
+    @Headers("Content-Type: application/json")
+    @GET("now_playing?")
+    Call<Object> getPlayingMovies(@Query("api_key") String key, @Query("language") String language, @Query("page") int page);
+
 }

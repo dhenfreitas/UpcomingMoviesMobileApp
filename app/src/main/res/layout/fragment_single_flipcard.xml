@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/blackground"
+    android:gravity="center"
+    android:id="@+id/wholeFlipcard"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:background="@color/blackground"
+        android:gravity="center"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shadow_11278">
+
+            <TableRow
+                android:id="@+id/flipcardPhotoField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/flipcardPhotoPreview"
+                android:layout_height="200dp"
+                android:layout_width="200dp"
+                android:background="@drawable/whiteroundingloginform">
+            </ImageView>
+            </TableRow>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray80"/>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:background="@android:color/transparent">
+
+                <TextView
+                    android:id="@+id/movieName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blackground"
+                    android:layout_weight="1"
+                    android:textSize="8pt"
+                    android:text="TextView" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:layout_marginLeft="30dp"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:id="@+id/first"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:weightSum="4"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/movieGenre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/grayer"
+                        android:layout_weight="1"
+                        android:textSize="6pt"
+                        android:background="@color/white"
+                        android:text="TextView" />
+
+                    <TextView
+                        android:id="@+id/movieReleaseData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/grayer"
+                        android:layout_weight="1"
+                        android:textSize="6pt"
+                        android:text="TextView" />
+
+                    <TextView
+                        android:id="@+id/movieOverview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/grayer"
+                        android:layout_weight="1"
+                        android:textSize="6pt"
+                        android:text="TextView" />
+                </LinearLayout>
+
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+</LinearLayout>

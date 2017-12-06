@@ -100,8 +100,6 @@ public class MovieListAdapter extends ArrayAdapter<Result> implements Filterable
 
         holder.overviewView.setText(r.getOverview() + "\n");
 
-
-
         return v;
     }
 
